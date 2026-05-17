@@ -344,10 +344,30 @@
     background: var(--cream);
     border: 1px solid var(--line-soft);
     border-radius: 6px;
-    padding: 32px 28px;
+    padding: 0;
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
+  }
+  .panelist-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: var(--cream-deep);
+    position: relative;
+  }
+  .panelist-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    display: block;
+  }
+  .panelist:hover .panelist-photo img {
+    transform: scale(1.04);
+  }
+  .panelist-body {
+    padding: 26px 28px 30px;
   }
   .panelist::before {
     content: "";
@@ -680,7 +700,8 @@
     .stat { padding: 28px 24px 24px; }
     .stat-num { font-size: 52px; }
     .section-title { font-size: 32px; }
-    .panelist { padding: 26px 22px; }
+    .panelist { padding: 0; }
+    .panelist-body { padding: 22px 22px 26px; }
     .program { padding: 26px 22px; }
   }
 
@@ -796,6 +817,10 @@
     <div class="panel-grid">
 
       <article class="panelist moderator reveal">
+        <div class="panelist-photo">
+          <img src="headshots/joe.jpg" alt="Joe Paul, Founder and CEO of OptimaNova AI" loading="lazy">
+        </div>
+        <div class="panelist-body">
         <div class="panelist-role">Moderator</div>
         <h3 class="panelist-name">Joe Paul</h3>
         <div class="panelist-title">Founder &amp; CEO, OptimaNova AI</div>
@@ -810,13 +835,18 @@
           <a class="pl-link" href="https://www.amazon.com/stores/Joe-Paul/author/B0GQVK99F6" target="_blank" rel="noopener">Books ↗</a>
           <a class="pl-link" href="https://linkedin.com/in/joepaul11" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
+        </div>
       </article>
 
       <article class="panelist reveal">
+        <div class="panelist-photo">
+          <img src="headshots/beth.jpg" alt="Beth Noveck, Founder of InnovateUS" loading="lazy">
+        </div>
+        <div class="panelist-body">
         <div class="panelist-role">Panelist</div>
         <h3 class="panelist-name">Beth Noveck</h3>
         <div class="panelist-title">Founder, InnovateUS &middot; Former U.S. Deputy CTO</div>
-        <p class="panelist-bio placeholder">
+        <p class="panelist-bio">
           Founder of InnovateUS and former United States Deputy Chief Technology Officer in the Obama administration.
           InnovateUS provides free AI and digital training to public-sector workers across the country.
           Author of a forthcoming book on AI and Democracy (June 2026).
@@ -824,9 +854,14 @@
         <div class="panelist-links">
           <a class="pl-link" href="https://innovate-us.org" target="_blank" rel="noopener">InnovateUS ↗</a>
         </div>
+        </div>
       </article>
 
       <article class="panelist reveal">
+        <div class="panelist-photo">
+          <img src="headshots/matthias.jpg" alt="Matthias Oschinski, Senior Fellow at Georgetown CSET" loading="lazy">
+        </div>
+        <div class="panelist-body">
         <div class="panelist-role">Panelist</div>
         <h3 class="panelist-name">Matthias Oschinski</h3>
         <div class="panelist-title">Senior Fellow &amp; Workforce Research Lead, Georgetown CSET</div>
@@ -839,9 +874,14 @@
           <a class="pl-link" href="https://pathwise.eto.tech/" target="_blank" rel="noopener">PATHWISE ↗</a>
           <a class="pl-link" href="https://cset.georgetown.edu/wp-content/uploads/CSET-AI-and-the-Future-of-Workforce-Training.pdf" target="_blank" rel="noopener">CSET Report ↗</a>
         </div>
+        </div>
       </article>
 
       <article class="panelist reveal">
+        <div class="panelist-photo">
+          <img src="headshots/chelsea.jpg" alt="Chelsea Kirkland, Digital Inclusion Coordinator at DC Public Library" loading="lazy">
+        </div>
+        <div class="panelist-body">
         <div class="panelist-role">Panelist</div>
         <h3 class="panelist-name">Chelsea Kirkland</h3>
         <div class="panelist-title">Digital Inclusion Coordinator, DC Public Library</div>
@@ -852,6 +892,7 @@
         <div class="panelist-links">
           <a class="pl-link" href="https://www.dclibrary.org/using-the-library/digital-navigators" target="_blank" rel="noopener">DCPL Digital Navigators ↗</a>
           <a class="pl-link" href="https://theupskillinglabs.org/" target="_blank" rel="noopener">Upskilling Labs ↗</a>
+        </div>
         </div>
       </article>
 
