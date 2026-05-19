@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0f1419">
+<title>Moderator Card | DC Gov AI Panel | May 19</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    background: #0f1419;
+    color: #e8e8e8;
+    line-height: 1.55;
+    font-size: 16px;
+    padding-bottom: 80px;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    background: linear-gradient(135deg, #1a2028 0%, #0f1419 100%);
+    padding: 22px 18px 18px;
+    border-bottom: 2px solid #C724B1;
+    position: relative;
+  }
+  .panel-title {
+    color: #C724B1;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  h1 {
+    font-size: 20px;
+    line-height: 1.25;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .when {
+    color: #a0a0a0;
+    font-size: 14px;
+  }
+  .when strong { color: #e8e8e8; }
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(15, 20, 25, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid #2a3038;
+    padding: 10px 0;
+    z-index: 100;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  nav a {
+    display: inline-block;
+    padding: 7px 13px;
+    margin: 0 3px;
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 14px;
+    background: #1a2028;
+    border: 1px solid #2a3038;
+  }
+  nav a:first-child { margin-left: 14px; }
+  nav a:last-child { margin-right: 14px; }
+  nav a.accent { color: #C724B1; border-color: #C724B1; }
+  section {
+    padding: 22px 18px 8px;
+  }
+  .section-label {
+    color: #C724B1;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    line-height: 1.25;
+  }
+  .card {
+    background: #1a2028;
+    border: 1px solid #2a3038;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .card.accent-pink { border-left: 4px solid #C724B1; }
+  .card.accent-blue { border-left: 4px solid #2E75B6; }
+  .card.accent-amber { border-left: 4px solid #f4a300; }
+  .card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .card .role {
+    color: #2E75B6;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .card p { margin-bottom: 10px; font-size: 15px; }
+  .card p:last-child { margin-bottom: 0; }
+  .card .label {
+    color: #a0a0a0;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    margin-top: 8px;
+  }
+  .quote {
+    background: #0f1419;
+    border-left: 3px solid #C724B1;
+    padding: 12px 14px;
+    margin: 10px 0 4px;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.5;
+    border-radius: 0 8px 8px 0;
+  }
+  .quote.blue { border-left-color: #2E75B6; }
+  .timing {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px 14px;
+    align-items: baseline;
+    font-size: 14px;
+  }
+  .timing .marker {
+    color: #C724B1;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+  }
+  .timing .step { color: #e8e8e8; }
+  .timing .dur {
+    color: #a0a0a0;
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+  }
+  ul.checklist { list-style: none; padding: 0; }
+  ul.checklist li {
+    padding: 8px 0 8px 28px;
+    position: relative;
+    font-size: 15px;
+    border-bottom: 1px solid #2a3038;
+  }
+  ul.checklist li:last-child { border-bottom: none; }
+  ul.checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #2E75B6;
+    border-radius: 4px;
+  }
+  .pill {
+    display: inline-block;
+    padding: 3px 9px;
+    background: rgba(199, 36, 177, 0.15);
+    color: #C724B1;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .pill.blue {
+    background: rgba(46, 117, 182, 0.15);
+    color: #2E75B6;
+  }
+  .pill.amber {
+    background: rgba(244, 163, 0, 0.15);
+    color: #f4a300;
+  }
+  .order-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: #C724B1;
+    color: white;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 13px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .pivot {
+    background: #0f1419;
+    border-left: 3px solid #2E75B6;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border-radius: 0 8px 8px 0;
+  }
+  .pivot:last-child { margin-bottom: 0; }
+  .warn {
+    background: rgba(244, 163, 0, 0.08);
+    border: 1px solid rgba(244, 163, 0, 0.3);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+  .warn strong { color: #f4a300; }
+  .footer-tag {
+    text-align: center;
+    color: #555;
+    font-size: 11px;
+    padding: 28px 18px 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  @media (max-width: 380px) {
+    body { font-size: 15px; }
+    h1 { font-size: 18px; }
+    h2 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="panel-title">OCTO AI Public Listening Session</div>
+  <h1>DC Gov's Approach to Workforce Development &amp; AI Literacy</h1>
+  <div class="when"><strong>Tue May 19</strong> &middot; 6:30 to 6:55 PM &middot; 25 min</div>
+</header>
+
+<nav>
+  <a href="#flow" class="accent">Flow</a>
+  <a href="#panelists">Panelists</a>
+  <a href="#opener">Opener</a>
+  <a href="#unique">Unique Qs</a>
+  <a href="#closer">Closer</a>
+  <a href="#toolkit">Toolkit</a>
+  <a href="#fallback">Fallback</a>
+  <a href="#checklist">Pre-Panel</a>
+</nav>
+
+<section id="flow">
+  <div class="section-label">At a Glance</div>
+  <h2>25-Minute Flow</h2>
+  <div class="card">
+    <div class="timing">
+      <div class="marker">0:00</div><div class="step">Introductions (you intro all three)</div><div class="dur">4 min</div>
+      <div class="marker">4:00</div><div class="step">Opener round-robin</div><div class="dur">9 min</div>
+      <div class="marker">13:00</div><div class="step">Unique question to each panelist</div><div class="dur">9 min</div>
+      <div class="marker">22:00</div><div class="step">Closing takeaways round-robin</div><div class="dur">3 min</div>
+      <div class="marker">25:00</div><div class="step">Hand back to OCTO</div><div class="dur">&mdash;</div>
+    </div>
+  </div>
+  <div class="warn">
+    <strong>Reality check:</strong> 8 questions in 25 minutes means you WILL cut someone off mid-thought. Decide now you're doing it warmly. Stock phrase: <em>"That's exactly where I want to come back to. [Name], your turn."</em>
+  </div>
+</section>
+
+<section id="panelists">
+  <div class="section-label">Speaking Order</div>
+  <h2>The Panel</h2>
+
+  <div class="card accent-pink">
+    <h3><span class="order-num">1</span>Chelsea Kirkland</h3>
+    <div class="role">Digital Inclusion Coordinator, DC Public Library</div>
+    <div class="label">Intro line</div>
+    <p>Chelsea leads digital inclusion at DC Public Library, which means she sees at the branch level how DC residents in every Ward actually engage with AI.</p>
+    <div class="label">Her lens</div>
+    <p>Community access. Libraries as AI gateway. Real resident behavior. Protect her floor time. <span class="pill">she/her</span></p>
+  </div>
+
+  <div class="card accent-blue">
+    <h3><span class="order-num">2</span>Matthias Oschinski</h3>
+    <div class="role">Senior Fellow &amp; Workforce Research Lead, Georgetown CSET</div>
+    <div class="label">Intro line</div>
+    <p>Matthias is Senior Fellow and Workforce Research Lead at Georgetown's Center for Security and Emerging Technology, where he studies how AI is reshaping the labor market.</p>
+    <div class="label">His lens</div>
+    <p>Data. Skills demand curves. Displacement risk. DMV labor market signals.</p>
+  </div>
+
+  <div class="card accent-pink">
+    <h3><span class="order-num">3</span>Beth Noveck</h3>
+    <div class="role">Founder, InnovateUS &middot; Former U.S. Deputy CTO</div>
+    <div class="label">Intro line</div>
+    <p>Beth is the Founder of InnovateUS and former United States Deputy Chief Technology Officer in the Obama administration. Her organization trains public-sector employees across the country in AI and digital skills, free of charge.</p>
+    <div class="label">Her lens</div>
+    <p>National policy. Cross-state benchmarks. Public-sector workforce capability. Give her room without letting her absorb the panel.</p>
+  </div>
+</section>
+
+<section id="opener">
+  <div class="section-label">Question 1</div>
+  <h2>Opener Round-Robin <span class="pill">9 min</span></h2>
+  <p style="color: #a0a0a0; font-size: 13px; margin-bottom: 12px;">Order: Chelsea &rarr; Matthias &rarr; Beth &middot; 3 min each</p>
+  <div class="quote">
+    In one specific story or example: what is something happening <em>right now</em> in DC, on the ground, that tells you we are either ahead of or behind where we need to be on AI and workforce?
+  </div>
+  <p style="font-size: 13px; color: #a0a0a0; margin-top: 12px;">Why this works: forces specificity, blocks the stump speech, surfaces real DC signal for the AI Task Force in the room.</p>
+</section>
+
+<section id="unique">
+  <div class="section-label">Questions 2 to 4</div>
+  <h2>One Per Panelist <span class="pill">9 min</span></h2>
+
+  <div class="card accent-pink">
+    <div class="label">To Chelsea</div>
+    <div class="quote">
+      DC Public Library is one of the few institutions in the District that touches every Ward. What are you seeing at the branch level that policymakers in this room are probably missing about how residents actually engage with AI?
+    </div>
+  </div>
+
+  <div class="card accent-blue">
+    <div class="label">To Matthias</div>
+    <div class="quote blue">
+      You study which skills are gaining and losing value. If a DC resident walked into a library tomorrow and asked "what should I learn to be employable in three years," what is the honest answer, and what is the answer we are afraid to give?
+    </div>
+  </div>
+
+  <div class="card accent-pink">
+    <div class="label">To Beth</div>
+    <div class="quote">
+      InnovateUS trains public-sector workers across multiple states. What is one thing other governments are doing that DC should steal, and one thing DC is doing that you would recommend to others?
+    </div>
+  </div>
+</section>
+
+<section id="closer">
+  <div class="section-label">Question 5</div>
+  <h2>Closing Round-Robin <span class="pill">3 min</span></h2>
+  <p style="color: #a0a0a0; font-size: 13px; margin-bottom: 12px;">1 min each &middot; Suggested order: Beth &rarr; Matthias &rarr; Chelsea</p>
+  <div class="quote">
+    If everyone in this room could do one thing differently on Monday morning, what would you ask them to do?
+  </div>
+  <p style="font-size: 13px; color: #a0a0a0; margin-top: 12px;">Action-oriented. Gives the AI Advisory Group and Task Force a tangible takeaway. Ending on Chelsea anchors the panel in community.</p>
+</section>
+
+<section id="toolkit">
+  <div class="section-label">Live Use</div>
+  <h2>Moderator Toolkit</h2>
+
+  <div class="label" style="color: #a0a0a0; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 10px;">Pivot phrases</div>
+  <div class="pivot">"That's exactly where I want to come back to. [Name], your turn."</div>
+  <div class="pivot">"Hold that thread. I want to bring [Name] in and circle back."</div>
+  <div class="pivot">"Let me push you on that. [follow-up]"</div>
+  <div class="pivot">"30 seconds left, so the room needs the punchline."</div>
+
+  <div style="margin-top: 18px;" class="label">Time checkpoints</div>
+  <div class="card" style="padding: 14px;">
+    <div class="timing">
+      <div class="marker">4:00</div><div class="step">Intros done</div><div class="dur">&nbsp;</div>
+      <div class="marker">13:00</div><div class="step">Opener done</div><div class="dur">&nbsp;</div>
+      <div class="marker">22:00</div><div class="step">Uniques done</div><div class="dur">&nbsp;</div>
+      <div class="marker">25:00</div><div class="step">Wrap and hand off</div><div class="dur">&nbsp;</div>
+    </div>
+  </div>
+</section>
+
+<section id="fallback">
+  <div class="section-label">If Time Permits</div>
+  <h2>Fallback Questions</h2>
+  <p style="font-size: 13px; color: #a0a0a0; margin-bottom: 12px;">Pull these if a panelist runs short, an answer is thin, or the room needs a jolt.</p>
+
+  <div class="card accent-amber">
+    <div class="quote">What did this panel get wrong? What aren't we talking about that we should be?</div>
+  </div>
+  <div class="card accent-amber">
+    <div class="quote">If I gave you one million dollars tomorrow to spend on AI workforce in DC, where does it go?</div>
+  </div>
+  <div class="card accent-amber">
+    <div class="quote">What is the single biggest myth about AI and workforce that you wish would die?</div>
+  </div>
+</section>
+
+<section id="checklist">
+  <div class="section-label">Before You Walk On</div>
+  <h2>Pre-Panel Checklist</h2>
+  <div class="card">
+    <ul class="checklist">
+      <li>Greeted all three panelists in green room</li>
+      <li>Confirmed final speaking order with Corinne</li>
+      <li>Confirmed if audience Q&amp;A is in or out</li>
+      <li>Phone on Do Not Disturb, this card pulled up</li>
+      <li>Watch or timer visible</li>
+      <li>Water within reach</li>
+      <li>OCTO leadership greeted, names locked in</li>
+    </ul>
+  </div>
+
+  <div class="warn" style="margin-top: 14px;">
+    <strong>Three self-reminders:</strong><br>
+    1. Do not pitch OptimaNova. Pure moderator.<br>
+    2. Protect Chelsea's floor time.<br>
+    3. This is a <em>listening</em> session. OCTO wants signal, not a show.
+  </div>
+</section>
+
+<div class="footer-tag">Moderator Card &middot; Joe Paul &middot; OptimaNova AI</div>
+
+</body>
+</html>
